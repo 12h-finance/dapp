@@ -1,8 +1,8 @@
 import Badge from '@/components/badge'
 import STARTKNETLogo from '@/components/logos/starknet'
 import { Button } from '@/components/ui/button'
-
 import { cn } from '@/lib/utils'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -39,15 +39,17 @@ export default function Home() {
           <span>{'Make your long term investement work!'}</span>
           <span>{'Use your traditional assets to get crypto loan.'}</span>
         </p>
-        <Button
-          className={cn(
-            'text-lg',
-            'mb-[30px] mt-[24px] w-[124px] rounded-[10px] px-[13px] py-[24px]',
-          )}
-          variant={'secondary'}
-        >
-          {'Launch'}
-        </Button>
+        <Link href='/dashboard'>
+          <Button
+            className={cn(
+              'text-lg',
+              'mb-[30px] mt-[24px] w-[124px] rounded-[10px] px-[13px] py-[24px]',
+            )}
+            variant={'secondary'}
+          >
+            {'Launch'}
+          </Button>
+        </Link>
       </div>
 
       <div className={'flex'}>

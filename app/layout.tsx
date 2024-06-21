@@ -4,10 +4,7 @@ import './globals.css'
 import { cn } from '@/lib/utils'
 import Header from '@/components/header'
 
-import {
-  DynamicContextProvider,
-  DynamicWidget,
-} from '@dynamic-labs/sdk-react-core'
+import { DynamicContextProvider } from '@dynamic-labs/sdk-react-core'
 import { EthersExtension } from '@dynamic-labs/ethers-v5'
 
 import { StarknetWalletConnectors } from '@dynamic-labs/starknet'
@@ -42,7 +39,6 @@ export default function RootLayout({
             walletConnectors: [StarknetWalletConnectors],
           }}
         >
-          <DynamicWidget />
           <Header />
           <div
             className='relative flex flex-col min-h-screen bg-center bg-cover'

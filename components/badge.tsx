@@ -31,12 +31,18 @@ const BadgeTypeData = {
   tsla: {
     ticker: 'TSLA',
     price: prices.tsla,
+    logo: <></>,
   },
   sp500: {
     ticker: 'S&P 500',
     price: prices.sp500,
+    logo: <></>,
   },
-  aapl: { ticker: 'AAPL', price: prices.aapl },
+  aapl: {
+    ticker: 'AAPL',
+    price: prices.aapl,
+    logo: <></>,
+  },
 }
 
 export type BadgeType = keyof typeof BadgeTypeData

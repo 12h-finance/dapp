@@ -14,35 +14,44 @@ export default function Home() {
       </div>
       <div
         className={cn(
-          'flex w-2/3 flex-col items-center justify-center',
+          'flex w-[760px] flex-col items-center justify-center',
           'rounded-[8px] bg-card',
         )}
       >
         <div
           className={
-            'mt-[30px] flex flex-col items-center justify-center px-[16px] py-[7px]'
+            'mt-[30px] grid place-items-center gap-1 px-[7px] py-[16px]'
           }
         >
           <span className={'text text-white'}>{'Powered with'}</span>
           <STARTKNETLogo />
         </div>
-	<p className={'mb-4 mt-[8px] text-center text-6xl text-white'}>
-		
-        <span >
-          {'Unlock liquidity of'}
-        </span>
-	<br/>
-        <span >
-          {'traditional assets'}
-        </span>
-	</p>
-        <span className={'text-center text-2xl text-[#D0D0D0]'}>
-          {'Make your long term investement work!'}
-        </span>
-        <span className={'text-center text-2xl text-[#D0D0D0]'}>
-          {'Use your traditional assets to get crypto loan.'}
-        </span>
-        <Button className={'mb-[30px] mt-[24px]'} variant={'secondary'}>
+        <p
+          className={cn(
+            'mt-2 grid gap-2 p-4',
+            'text-center text-6xl text-white',
+          )}
+        >
+          <span>{'Unlock liquidity of'}</span>
+          <span>{'traditional assets'}</span>
+        </p>
+        <p
+          className={cn(
+            'mt-[18px] grid',
+            'text-center text-2xl text-[#D0D0D0]',
+          )}
+        >
+          <span>{'Make your long term investement work!'}</span>
+          <span>{'Use your traditional assets to get crypto loan.'}</span>
+        </p>
+        <Button
+          className={cn(
+            'text-lg',
+            'mb-[30px] mt-[24px] px-[13px] py-[24px]',
+          )}
+          size={'lg'}
+          variant={'secondary'}
+        >
           {' Launch'}
         </Button>
       </div>

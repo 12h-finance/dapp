@@ -42,7 +42,7 @@ export default function Home() {
         <Button
           className={cn(
             'text-lg',
-            'rounded-[10px] mb-[30px] mt-[24px] w-[124px] px-[13px] py-[24px]',
+            'mb-[30px] mt-[24px] w-[124px] rounded-[10px] px-[13px] py-[24px]',
           )}
           variant={'secondary'}
         >

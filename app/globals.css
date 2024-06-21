@@ -12,8 +12,8 @@
     --popover-foreground: 240 10% 3.9%;
     --primary: 221 100% 50%;
     --primary-foreground: 240 74% 18%;
-    --secondary: 221 20% 60%;
-    --secondary-foreground: 232 43% 82%;
+    --secondary: 240 74% 18%;
+    --secondary-foreground: 0 0% 100%;
     --muted: 221 100% 43%;
     --muted-foreground: 221 100% 34%;
     --accent: 219 100% 95%;
@@ -27,25 +27,7 @@
   }
 
   .dark {
-    --background: 20 14.3% 4.1%;
-    --foreground: 0 0% 95%;
-    --card: 24 9.8% 10%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 9%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 220 100% 50%; /* 0052FF */
-    --primary-foreground: 240 10% 3.9%; /* 0C0C4F */
-    --secondary: 214 20% 60.6%; /* 8592AD */
-    --secondary-foreground: 214 25.6% 90.2%; /* B3C3E5 */
-    --muted: 214 90% 96.1%; /* F2F6FD */
-    --muted-foreground: 214 30% 86.7%; /* B2CDFF */
-    --accent: 214 20% 94.1%; /* E5EEFF */
-    --accent-foreground: 0 0% 98%;
-    --destructive: 15.8 100% 54.9%; /* FF4F0A */
-    --destructive-foreground: 0 85.7% 97.3%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 346.8 77.2% 49.8%;
+	  /* @todo add dark theme colors here */
   }
 }
 @layer base {

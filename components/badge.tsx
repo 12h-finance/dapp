@@ -38,8 +38,8 @@ const Badge = ({ type, className }: BadgeProps) => {
   return (
     <div
       className={cn(
-        'inline-flex max-w-44 items-center justify-center',
-        'rounder-[8px] bg-muted p-[7px]',
+        'inline-flex max-h-[46px] max-w-44 items-center justify-center',
+        'rounded-[8px] bg-muted p-[7px]',
         className,
       )}
     >

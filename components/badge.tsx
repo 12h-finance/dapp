@@ -4,7 +4,14 @@ import BTCLogo from '@/components/logos/btc'
 import USDCLogo from '@/components/logos/usdc'
 import { cn } from '@/lib/utils'
 
-const prices = { eth: '$3,770.14', btc: '$67,580.12', usdc: '$1.00' }
+const prices = {
+  eth: '$3,770.14',
+  btc: '$67,580.12',
+  usdc: '$1.00',
+  tsla: '$187.52',
+  sp500: '$5,478.83',
+  aapl: '$218.24',
+}
 const BadgeTypeData = {
   eth: {
     ticker: 'ETH',
@@ -21,6 +28,15 @@ const BadgeTypeData = {
     price: prices.usdc,
     logo: <USDCLogo />,
   },
+  tsla: {
+    ticker: 'TSLA',
+    price: prices.tsla,
+  },
+  sp500: {
+    ticker: 'S&P 500',
+    price: prices.sp500,
+  },
+  aapl: { ticker: 'AAPL', price: prices.aapl },
 }
 
 export type BadgeType = keyof typeof BadgeTypeData

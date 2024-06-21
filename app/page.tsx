@@ -8,9 +8,9 @@ export default function Home() {
   return (
     <div className={'flex flex-col items-center justify-center'}>
       <div className={'mb-[19px] flex h-28'}>
-        <Badge type={'btc'} className={'mt-[26px]'} />
-        <Badge type={'usdc'} className={'ml-[124px] mr-[110px] mt-[52px]'} />
-        <Badge type={'eth'} className={'mt-[22px]'} />
+        <Badge type={'tsla'} className={'mt-[26px]'} />
+        <Badge type={'sp500'} className={'ml-[124px] mr-[110px] mt-[52px]'} />
+        <Badge type={'aapl'} className={'mt-[22px]'} />
       </div>
       <div
         className={cn(
@@ -26,18 +26,13 @@ export default function Home() {
           <span className={'text text-white'}>{'Powered with'}</span>
           <STARTKNETLogo />
         </div>
-        <p
-          className={cn(
-            'mt-2 grid gap-2 p-4',
-            'text-center text-6xl text-white',
-          )}
-        >
+        <p className={cn('grid gap-2 p-4', 'text-center text-6xl text-white')}>
           <span>{'Unlock liquidity of'}</span>
           <span>{'traditional assets'}</span>
         </p>
         <p
           className={cn(
-            'mt-[18px] grid',
+            'mt-[14px] grid',
             'text-center text-2xl text-[#D0D0D0]',
           )}
         >
@@ -47,13 +42,18 @@ export default function Home() {
         <Button
           className={cn(
             'text-lg',
-            'mb-[30px] mt-[24px] px-[13px] py-[24px]',
+            'rounded-[10px] mb-[30px] mt-[24px] w-[124px] px-[13px] py-[24px]',
           )}
-          size={'lg'}
           variant={'secondary'}
         >
-          {' Launch'}
+          {'Launch'}
         </Button>
+      </div>
+
+      <div className={'flex'}>
+        <Badge type={'usdc'} className={'mt-[74px]'} />
+        <Badge type={'btc'} className={'ml-[124px] mr-[110px] mt-[37px]'} />
+        <Badge type={'eth'} className={'mt-[78px]'} />
       </div>
     </div>
   )

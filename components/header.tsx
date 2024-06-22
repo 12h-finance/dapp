@@ -22,13 +22,12 @@ const Header = ({ className }: HeaderProps) => {
       )}
     >
       <div className={'flex items-center justify-center'}>
-	      <Link href={'/'}>
-
-        <Logo />
-      </Link>
+        <Link href={'/'}>
+          <Logo />
+        </Link>
         {isAuthenticated && (
           <span
-            className={cn('ml-[32px] text-sm font-bold text-white', 'border-b')}
+            className={cn('ml-[32px] text-sm font-bold text-white', 'border-b', 'hidden')}
           >
             {'Dashboard'}
           </span>

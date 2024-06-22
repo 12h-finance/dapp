@@ -1,4 +1,12 @@
 import { Button } from '@/components/ui/button'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
 import { cn } from '@/lib/utils'
 
 const Dashboard = () => (
@@ -24,7 +32,24 @@ const Dashboard = () => (
           <span className={'text-[#8592AD]'}>
             {'You have no collaterall yet'}
           </span>
-          <Button className={'rounded-[10px] mt-2 text-white'}>{'Add collaterall'}</Button>
+          <Dialog>
+            <DialogTrigger>
+              <Button className={'mt-2 rounded-[10px] text-white'}>
+                {'Add collaterall'}
+              </Button>
+            </DialogTrigger>
+            <DialogContent className={'bg-white'}>
+              <DialogHeader>
+                <DialogTitle className={'text-[#0C0C4F]'}>
+                  {'Supply RWA collaterall'}
+                </DialogTitle>
+                <DialogDescription>
+                  This action cannot be undone. This will permanently delete
+                  your account and remove your data from our servers.
+                </DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
       <div

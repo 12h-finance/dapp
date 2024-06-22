@@ -10,7 +10,7 @@ const available = '14 SPX'
 
 const Dashboard = () => {
   const { isAuthenticated } = useDynamicContext()
-	const { hasCollaterallConnected} = use12h()
+  const { hasCollaterallConnected } = use12h()
 
   return (
     <div className={cn('grid place-items-center')}>
@@ -36,9 +36,13 @@ const Dashboard = () => {
             <span className={'text-[#8592AD]'}>
               {'You have no collaterall yet'}
             </span>
-            {isAuthenticated ? 
-		    hasCollaterallConnected ? (
-			    <SupplyRWAModal available={available} /> ): (<ConnectCollaterall/>) : (
+            {isAuthenticated ? (
+              hasCollaterallConnected ? (
+                <SupplyRWAModal available={available} />
+              ) : (
+                <ConnectCollaterall />
+              )
+            ) : (
               <DynamicWidget />
             )}
           </div>

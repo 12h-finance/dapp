@@ -1,6 +1,5 @@
 'use client'
 import Badge from '@/components/badge'
-import Header from '@/components/header'
 import STARTKNETLogo from '@/components/logos/starknet'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -18,7 +17,6 @@ export default function Home() {
 
   return (
     <div className={'flex flex-col items-center justify-center'}>
-      <Header />
       <div className={'mb-[19px] flex h-28'}>
         <Badge type={'tsla'} className={'mt-[26px]'} />
         <Badge type={'sp500'} className={'ml-[124px] mr-[110px] mt-[52px]'} />

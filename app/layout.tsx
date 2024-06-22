@@ -7,6 +7,7 @@ import { DynamicContextProvider } from '@dynamic-labs/sdk-react-core'
 import { EthersExtension } from '@dynamic-labs/ethers-v5'
 
 import { StarknetWalletConnectors } from '@dynamic-labs/starknet'
+import Header from '@/components/header'
 
 export const metadata: Metadata = {
   title: '12h',
@@ -42,6 +43,7 @@ export default function RootLayout({
             className='relative flex flex-col min-h-screen bg-center bg-cover'
             style={{ backgroundImage: 'url(/luch.svg)' }}
           >
+            <Header />
             <div className='relative z-20 flex-grow'>{children}</div>
           </div>
         </DynamicContextProvider>

@@ -3,6 +3,7 @@
 import { cn } from '@/lib/utils'
 import Logo from '@/components/logos/company'
 import { DynamicWidget, useDynamicContext } from '@dynamic-labs/sdk-react-core'
+import Link from 'next/link'
 
 type HeaderProps = {
   className?: string
@@ -21,7 +22,10 @@ const Header = ({ className }: HeaderProps) => {
       )}
     >
       <div className={'flex items-center justify-center'}>
+	      <Link href={'/'}>
+
         <Logo />
+      </Link>
         {isAuthenticated && (
           <span
             className={cn('ml-[32px] text-sm font-bold text-white', 'border-b')}

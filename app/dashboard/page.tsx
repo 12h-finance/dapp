@@ -24,7 +24,7 @@ const Dashboard = () => (
           <span className={'text-[#8592AD]'}>
             {'You have no collaterall yet'}
           </span>
-          <Button className={'text-white'}>{'Add Collaterall'}</Button>
+          <Button className={'rounded-[10px] mt-2 text-white'}>{'Add collaterall'}</Button>
         </div>
       </div>
       <div

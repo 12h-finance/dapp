@@ -27,7 +27,11 @@ const Header = ({ className }: HeaderProps) => {
         </Link>
         {isAuthenticated && (
           <span
-            className={cn('ml-[32px] text-sm font-bold text-white', 'border-b', 'hidden')}
+            className={cn(
+              'ml-[32px] text-sm font-bold text-white',
+              'border-b',
+              'hidden',
+            )}
           >
             {'Dashboard'}
           </span>

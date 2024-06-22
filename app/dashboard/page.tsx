@@ -1,79 +1,64 @@
-import { Button } from '@/components/ui/button'
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog'
-import { cn } from '@/lib/utils'
+'use client'
+import SupplyRWAModal from '@/components/modals/supply-rwa'
 
-const Dashboard = () => (
-  <div className={cn('grid place-items-center')}>
-    <DashboardTitle className={'my-[60px]'} />
-    <div className={'flex gap-4'}>
-      <div
-        className={cn(
-          'flex h-[285px] w-[652px] flex-col',
-          'rounded-[14px] bg-white',
-          'divide-y divide-solid',
-        )}
-      >
-        <div className={'my-4 text-center font-bold text-[#0C0C4F]'}>
-          <span>{'Your RWA Collaterall'}</span>
+import { cn } from '@/lib/utils'
+import { DynamicWidget, useDynamicContext } from '@dynamic-labs/sdk-react-core'
+
+const available = '14 SPX'
+
+const Dashboard = () => {
+  const { isAuthenticated } = useDynamicContext()
+
+  return (
+    <div className={cn('grid place-items-center')}>
+      <DashboardTitle className={'my-[60px]'} />
+      <div className={'flex gap-4'}>
+        <div
+          className={cn(
+            'flex h-[285px] w-[652px] flex-col',
+            'rounded-[14px] bg-white',
+            'divide-y divide-solid',
+          )}
+        >
+          <div className={'my-4 text-center font-bold text-[#0C0C4F]'}>
+            <span>{'Your RWA Collaterall'}</span>
+            {/* test comment */}
+          </div>
+          <div
+            className={cn(
+              'grid place-content-center place-items-center pt-[65px]',
+              'text-center',
+            )}
+          >
+            <span className={'text-[#8592AD]'}>
+              {'You have no collaterall yet'}
+            </span>
+	  {isAuthenticated ? <SupplyRWAModal available={available} /> : <DynamicWidget/>}
+          </div>
         </div>
         <div
           className={cn(
-            'grid place-content-center place-items-center pt-[65px]',
-            'text-center',
+            'flex h-[285px] w-[652px] flex-col',
+            'rounded-[14px] bg-white',
+            'divide-y divide-solid',
           )}
         >
-          <span className={'text-[#8592AD]'}>
-            {'You have no collaterall yet'}
-          </span>
-          <Dialog>
-            <DialogTrigger>
-              <Button className={'mt-2 rounded-[10px] text-white'}>
-                {'Add collaterall'}
-              </Button>
-            </DialogTrigger>
-            <DialogContent className={'bg-white'}>
-              <DialogHeader>
-                <DialogTitle className={'text-[#0C0C4F]'}>
-                  {'Supply RWA collaterall'}
-                </DialogTitle>
-                <DialogDescription>
-                  This action cannot be undone. This will permanently delete
-                  your account and remove your data from our servers.
-                </DialogDescription>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>
-        </div>
-      </div>
-      <div
-        className={cn(
-          'flex h-[285px] w-[652px] flex-col',
-          'rounded-[14px] bg-white',
-          'divide-y divide-solid',
-        )}
-      >
-        <div className={'my-4 text-center font-bold text-[#0C0C4F]'}>
-          <span>{'Your crypto borrows'}</span>
-        </div>
-        <div
-          className={cn(
-            'grid place-content-center place-items-center pt-[65px]',
-            'text-center',
-          )}
-        >
-          {'TO BE Continued ...'}
+          <div className={'my-4 text-center font-bold text-[#0C0C4F]'}>
+            <span>{'Your crypto borrows'}</span>
+          </div>
+          <div
+            className={cn(
+              'grid place-content-center place-items-center pt-[65px]',
+              'text-center',
+            )}
+          >
+            {'TO BE Continued ...'}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-)
+  )
+}
 
 export default Dashboard
 

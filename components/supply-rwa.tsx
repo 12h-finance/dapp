@@ -17,7 +17,7 @@ const SupplyRWAModal = ({ available }: SupplyRWAModalProps) => (
   <Dialog>
     <DialogTrigger>
       <Button className={'mt-2 rounded-[10px] text-white'}>
-        {'Add collaterall'}
+        {'Supply'}
       </Button>
     </DialogTrigger>
     <DialogContent className={'max-w-sm bg-white'}>

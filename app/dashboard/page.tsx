@@ -1,5 +1,7 @@
 'use client'
-import SupplyRWAModal from '@/components/modals/supply-rwa'
+import ConnectCollaterall from '@/components/connect-collaterall'
+import SupplyRWAModal from '@/components/supply-rwa'
+import use12h from '@/hooks/use12h'
 
 import { cn } from '@/lib/utils'
 import { DynamicWidget, useDynamicContext } from '@dynamic-labs/sdk-react-core'
@@ -8,6 +10,7 @@ const available = '14 SPX'
 
 const Dashboard = () => {
   const { isAuthenticated } = useDynamicContext()
+	const { hasCollaterallConnected} = use12h()
 
   return (
     <div className={cn('grid place-items-center')}>
@@ -33,7 +36,11 @@ const Dashboard = () => {
             <span className={'text-[#8592AD]'}>
               {'You have no collaterall yet'}
             </span>
-	  {isAuthenticated ? <SupplyRWAModal available={available} /> : <DynamicWidget/>}
+            {isAuthenticated ? 
+		    hasCollaterallConnected ? (
+			    <SupplyRWAModal available={available} /> ): (<ConnectCollaterall/>) : (
+              <DynamicWidget />
+            )}
           </div>
         </div>
         <div

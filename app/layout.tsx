@@ -35,7 +35,6 @@ export default function RootLayout({
         <DynamicContextProvider
           settings={{
             environmentId: '201e3fd9-3fe6-4826-b166-b22ec13a4ef8',
-            walletConnectorExtensions: [EthersExtension],
             walletConnectors: [StarknetWalletConnectors],
           }}
         >

@@ -1,11 +1,9 @@
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import {DynamicWidget} from '@dynamic-labs/sdk-react-core'
 
 const Dashboard = () => (
   <div className={cn('grid place-items-center')}>
     <DashboardTitle className={'my-[60px]'} />
-    <DynamicWidget/>
     <div className={'flex gap-4'}>
       <div
         className={cn(

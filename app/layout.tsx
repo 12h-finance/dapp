@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 import { cn } from '@/lib/utils'
-import Header from '@/components/header'
 
 import { DynamicContextProvider } from '@dynamic-labs/sdk-react-core'
 import { EthersExtension } from '@dynamic-labs/ethers-v5'
@@ -39,7 +38,6 @@ export default function RootLayout({
             walletConnectors: [StarknetWalletConnectors],
           }}
         >
-          <Header />
           <div
             className='relative flex flex-col min-h-screen bg-center bg-cover'
             style={{ backgroundImage: 'url(/luch.svg)' }}

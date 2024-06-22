@@ -1,19 +1,36 @@
 'use client'
+
 import { cn } from '@/lib/utils'
 import Logo from '@/components/logos/company'
-import { useDynamicModals } from '@dynamic-labs/sdk-react-core'
+import { DynamicWidget, useDynamicContext } from '@dynamic-labs/sdk-react-core'
 
-const Header = () => {
-  const { setShowLinkNewWalletModal } = useDynamicModals()
-  setShowLinkNewWalletModal(true)
+type HeaderProps = {
+  className?: string
+}
+const Header = ({ className }: HeaderProps) => {
+  const { isAuthenticated } = useDynamicContext()
   return (
     <header
       className={cn(
-        'flex items-center justify-center py-3',
+        className,
+        'flex items-center py-3',
+        isAuthenticated
+          ? 'justify-between border-b border-[#F2F3F729] px-[60px]'
+          : 'justify-center',
         'sticky top-0 z-50 w-full bg-foreground backdrop-blur',
       )}
     >
-      <Logo />
+      <div className={'flex items-center justify-center'}>
+        <Logo />
+        {isAuthenticated && (
+          <span
+            className={cn('ml-[32px] text-sm font-bold text-white', 'border-b')}
+          >
+            {'Dashboard'}
+          </span>
+        )}
+      </div>
+      {isAuthenticated && <DynamicWidget />}
     </header>
   )
 }

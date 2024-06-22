@@ -1,12 +1,24 @@
+'use client'
 import Badge from '@/components/badge'
+import Header from '@/components/header'
 import STARTKNETLogo from '@/components/logos/starknet'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import Link from 'next/link'
+import { useDynamicContext } from '@dynamic-labs/sdk-react-core'
+import { useRouter } from 'next/navigation'
 
 export default function Home() {
+  const { setShowAuthFlow, isAuthenticated } = useDynamicContext()
+  const router = useRouter()
+
+  const handleLaunch = () => {
+    if (!isAuthenticated) setShowAuthFlow(true)
+    router.push('/dashboard')
+  }
+
   return (
     <div className={'flex flex-col items-center justify-center'}>
+      <Header />
       <div className={'mb-[19px] flex h-28'}>
         <Badge type={'tsla'} className={'mt-[26px]'} />
         <Badge type={'sp500'} className={'ml-[124px] mr-[110px] mt-[52px]'} />
@@ -39,17 +51,16 @@ export default function Home() {
           <span>{'Make your long term investement work!'}</span>
           <span>{'Use your traditional assets to get crypto loan.'}</span>
         </p>
-        <Link href='/dashboard'>
-          <Button
-            className={cn(
-              'text-lg',
-              'mb-[30px] mt-[24px] w-[124px] rounded-[10px] px-[13px] py-[24px]',
-            )}
-            variant={'secondary'}
-          >
-            {'Launch'}
-          </Button>
-        </Link>
+        <Button
+          onClick={handleLaunch}
+          className={cn(
+            'text-lg',
+            'mb-[30px] mt-[24px] w-[124px] rounded-[10px] px-[13px] py-[24px]',
+          )}
+          variant={'secondary'}
+        >
+          {'Launch'}
+        </Button>
       </div>
 
       <div className={'flex'}>

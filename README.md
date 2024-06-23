@@ -36,7 +36,6 @@ Contract deployment transaction: 0x045f40081995bf0a7e967422e33786919aa16ae91b8c2
 Contract deployed:
 0x02093eb421181dd2ac407d75d910a1bbe38995dfce8047c3860ea576bc77b5b8
 → starkli declare target/dev/contracts_SPXToken.contract_class.json
-Enter keystore password:
 Sierra compiler version not specified. Attempting to automatically decide version to use...
 Network detected: sepolia. Using the default compiler version for this network: 2.6.2. Use the --compiler-version flag to choose a different version.
 Declaring Cairo 1 class: 0x04c12924381715545c10071c36c271c1398fa43d5c5432f2d1fb28ffed59c8fe
@@ -46,23 +45,26 @@ Contract declaration transaction: 0x033fcbf0e572c1ea5f7af664699ea2b684a9e6c23f11
 Class hash declared:
 0x04c12924381715545c10071c36c271c1398fa43d5c5432f2d1fb28ffed59c8fe
 → starkli deploy 0x04c12924381715545c10071c36c271c1398fa43d5c5432f2d1fb28ffed59c8fe
-Enter keystore password:
 Deploying class 0x04c12924381715545c10071c36c271c1398fa43d5c5432f2d1fb28ffed59c8fe with salt 0x0021cdb71c4e1072cfdc9d84c70fdd1f023d7e96e8c7a0ef070cdc616b937a9e...
 The contract will be deployed at address 0x07c05e2f844299cb6e95a87929171af4975e7757540ad97c2c5cfe1a1742db73
 Contract deployment transaction: 0x04f3c0ae667b65808111cc00d37ced0756d42e4e0e7da12c11b85beee6dbe7ff
 Contract deployed:
 0x07c05e2f844299cb6e95a87929171af4975e7757540ad97c2c5cfe1a1742db73
-→ starkli declare target/dev/
-contracts_Pool.contract_class.json       contracts_SPXToken.contract_class.json   contracts.starknet_artifacts.json        contracts_USDCToken.contract_class.json
-→ starkli declare target/dev/contracts_Pool.contract_class.json
-Enter keystore password:
-Not declaring class as it's already declared. Class hash:
-0x023c202111c9e78666821b87295103fc1e61bac7d3daad8540a7d57d73661197
-→ starkli deploy 0x023c202111c9e78666821b87295103fc1e61bac7d3daad8540a7d57d73661197
-Enter keystore password:
-Deploying class 0x023c202111c9e78666821b87295103fc1e61bac7d3daad8540a7d57d73661197 with salt 0x06e92f1579b2cd229cf6fa2badae4061ef7cbd69e2f868d781ec9b1090dcb66c...
-The contract will be deployed at address 0x06e91685daa4ac73581cb5bd9c19f5826d6d6d2680de0d4755b15d63e82d2fa8
-Contract deployment transaction: 0x02b66be12cb3cc406b403e495e63e1be7dc47456d3452f69399b46cdf8beb505
+→ starkli declare ./target/dev/contracts_Pool.contract_class.json
+Sierra compiler version not specified. Attempting to automatically decide version to use...
+Network detected: sepolia. Using the default compiler version for this network: 2.6.2. Use the --compiler-version flag to choose a different version.
+Declaring Cairo 1 class: 0x034e8c320b72447cc94027dbd57850a8b6fa7018fe29f075da23c6a586c5897b
+Compiling Sierra class to CASM with compiler version 2.6.2...
+CASM class hash: 0x05d2f021bd0135f311f5930c3080ed5e206abc8b41bcb1dcebd616c72c7719c4
+Contract declaration transaction: 0x018665d75fd391ec21ea95227c416786bcbb44658ad298b99a50895721f4f01c
+Class hash declared:
+0x034e8c320b72447cc94027dbd57850a8b6fa7018fe29f075da23c6a586c5897b
+→ starkli de
+declare  deploy
+→ starkli deploy 0x034e8c320b72447cc94027dbd57850a8b6fa7018fe29f075da23c6a586c5897b
+Deploying class 0x034e8c320b72447cc94027dbd57850a8b6fa7018fe29f075da23c6a586c5897b with salt 0x000d51125d14b739cf99acaece7e5f1835d68c902ea2a3c053ab8f5a7c1bb08f...
+The contract will be deployed at address 0x0340693a874131acbef99ac3983005482be8240d2437b30973db7c48eb49b203
+Contract deployment transaction: 0x016ad03c9559b2ed73bca25024ce003e470d0f20502ec4d3d2a9c3388a3846c1
 Contract deployed:
-0x06e91685daa4ac73581cb5bd9c19f5826d6d6d2680de0d4755b15d63e82d2fa8
+0x0340693a874131acbef99ac3983005482be8240d2437b30973db7c48eb49b203
 ```

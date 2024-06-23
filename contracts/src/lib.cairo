@@ -1,2 +1,3 @@
-mod tspx_token;
+mod usdc;
+mod tspx;
 mod pool;

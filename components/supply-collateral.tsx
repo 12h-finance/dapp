@@ -37,7 +37,7 @@ const SupplyCollaterall = ({ className }: SupplyRWAModalProps) => {
     const signer = await primaryWallet.connector.getSigner<Account>()
     // @todo move address to config
     const address =
-      '0x0706b3d14f420bbd8a9726cbe1a0df2f6ce7e8c3e1cf55dab9baa4fc603b99ec'
+      '0x021eb62dcc6c99a30290ec9e234eb17ada1f1029c454dfee7bbbc127c67be6da'
     const { abi } = await provider.getClassAt(address)
     const contract = new Contract(abi, address, provider)
 

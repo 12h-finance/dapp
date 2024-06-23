@@ -4,7 +4,6 @@ import './globals.css'
 import { cn } from '@/lib/utils'
 
 import { DynamicContextProvider } from '@dynamic-labs/sdk-react-core'
-import { EthersExtension } from '@dynamic-labs/ethers-v5'
 
 import { StarknetWalletConnectors } from '@dynamic-labs/starknet'
 import Header from '@/components/header'

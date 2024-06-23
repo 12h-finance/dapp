@@ -14,6 +14,7 @@ import { useDynamicContext } from '@dynamic-labs/sdk-react-core'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
 import { TSPXBeam } from './tspx-beam'
+import SupplyColSuccess from './supply-collateral-success'
 
 type SupplyRWAModalProps = {
   className?: string
@@ -88,6 +89,7 @@ const SupplyCollaterall = ({ className }: SupplyRWAModalProps) => {
     <>
       <DialogHeader>{'success'}</DialogHeader>
       <DialogClose>
+        <SupplyColSuccess />
         <Button onClick={() => setTxHash('')}>{'OK'}</Button>
       </DialogClose>
     </>

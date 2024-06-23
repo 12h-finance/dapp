@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils'
 import { AnimatedBeam } from '@/components/magicui/animated-beam'
 import React, { forwardRef, useRef } from 'react'
 
+// eslint-disable-next-line react/display-name
 const Circle = forwardRef<
   HTMLDivElement,
   { className?: string; children?: React.ReactNode }

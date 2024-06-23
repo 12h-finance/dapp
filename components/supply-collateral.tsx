@@ -90,13 +90,14 @@ const SupplyCollaterall = ({ className }: SupplyRWAModalProps) => {
     </>
   )
   const successContent = () => (
-    <>
-      <DialogHeader>{'success'}</DialogHeader>
-      <DialogClose>
-        <SupplyColSuccess />
-        <Button onClick={() => setTxHash('')}>{'OK'}</Button>
-      </DialogClose>
-    </>
+    <DialogClose className={'grid place-items-center'}>
+      <SupplyColSuccess />
+      <Label className={'my-4'} >{'tSPX supplied!'}</Label>
+   
+      <Button className={'text-white'} onClick={() => setTxHash('')}>
+        {'Succsss'}
+      </Button>
+    </DialogClose>
   )
   const Content = loading
     ? pendingContent

@@ -25,17 +25,12 @@ const Dashboard = () => {
             <span>{'Your RWA Collaterall'}</span>
             {/* test comment */}
           </div>
-          <div
-            className={cn(
-              'grid place-content-center place-items-center',
-              'text-center',
-            )}
-          >
+          <div className={cn('text-center')}>
             {isAuthenticated ? (
               collaterallConnected ? (
                 <SupplyCollaterall />
               ) : (
-                <div>
+                <div className={'mt-20 grid place-items-center'}>
                   <span className={'text-[#8592AD]'}>
                     {'You have no collaterall yet'}
                   </span>

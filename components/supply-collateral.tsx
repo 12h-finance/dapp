@@ -64,7 +64,7 @@ const SupplyCollaterall = ({ className }: SupplyRWAModalProps) => {
           <Label className={'text text-black'}>{'Enter quantity'}</Label>
           <Label>
             <span className={'text-[#8592AD]'}>{'Available: '}</span>
-            {'avalalbla'}
+            {'200 SPX'}
           </Label>
         </div>
         <Input

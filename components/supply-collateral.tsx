@@ -21,9 +21,10 @@ type SupplyRWAModalProps = {
 
 const SupplyCollaterall = ({ className }: SupplyRWAModalProps) => {
   const { primaryWallet } = useDynamicContext()
-  const [amount, setAmount] = useState(1)
-  const [loading, setLoading] = useState(false)
-  const [txHash, setTxHash] = useState('')
+
+  const [amount, setAmount] = useState<string>('')
+  const [txHash, setTxHash] = useState<string>('')
+  const [loading, setLoading] = useState<boolean>(false)
 
   const handleSubmit = async () => {
     if (!primaryWallet) return
@@ -39,7 +40,7 @@ const SupplyCollaterall = ({ className }: SupplyRWAModalProps) => {
 
     if (!signer) return
     contract.connect(signer)
-    const args = contract.populate('mint', [amount])
+    const args = contract.populate('mint', [amount as string])
     const mint_tx = await contract.mint(args.calldata)
     setLoading(true)
     await provider.waitForTransaction(mint_tx.transaction_hash)
@@ -63,8 +64,9 @@ const SupplyCollaterall = ({ className }: SupplyRWAModalProps) => {
         </div>
         <Input
           type={'number'}
-          placeholder={amount.toString()}
-          onChange={e => setAmount(Number(e.target.value))}
+          placeholder={'1'}
+          value={amount}
+          onChange={e => setAmount(e.target.value)}
         />
         <Button
           className={'mt-[10px] text-white'}
@@ -86,11 +88,15 @@ const SupplyCollaterall = ({ className }: SupplyRWAModalProps) => {
     <>
       <DialogHeader>{'success'}</DialogHeader>
       <DialogClose>
-        <Button>{'OK'}</Button>
+        <Button onClick={() => setTxHash('')}>{'OK'}</Button>
       </DialogClose>
     </>
   )
-  const Content = loading ? pendingContent : txHash ? successContent : supplyContent
+  const Content = loading
+    ? pendingContent
+    : txHash
+      ? successContent
+      : supplyContent
   return (
     <Dialog>
       <DialogTrigger className={className}>

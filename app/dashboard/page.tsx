@@ -1,17 +1,14 @@
 'use client'
 import ConnectCollaterall from '@/components/connect-collaterall'
-import SupplyRWAModal from '@/components/supply-rwa'
-import use12h from '@/hooks/use12h'
+import SupplyCollaterall from '@/components/supply-collateral'
 
 import { cn } from '@/lib/utils'
 import { DynamicWidget, useDynamicContext } from '@dynamic-labs/sdk-react-core'
-
-const available = '14 SPX'
+import { useState } from 'react'
 
 const Dashboard = () => {
   const { isAuthenticated } = useDynamicContext()
-  const { hasCollaterallConnected } = use12h()
-
+  const [collaterallConnected, setCollaterralConnected] = useState(false)
   return (
     <div className={cn('grid place-items-center')}>
       <DashboardTitle className={'my-[60px]'} />
@@ -29,18 +26,20 @@ const Dashboard = () => {
           </div>
           <div
             className={cn(
-              'grid place-content-center place-items-center pt-[65px]',
+              'grid place-content-center place-items-center ',
               'text-center',
             )}
           >
-            <span className={'text-[#8592AD]'}>
-              {'You have no collaterall yet'}
-            </span>
             {isAuthenticated ? (
-              hasCollaterallConnected ? (
-                <SupplyRWAModal available={available} />
+              collaterallConnected ? (
+                <SupplyCollaterall />
               ) : (
-                <ConnectCollaterall />
+                <div>
+                  <span className={'text-[#8592AD]'}>
+                    {'You have no collaterall yet'}
+                  </span>
+                  <ConnectCollaterall onLogin={setCollaterralConnected} />
+                </div>
               )
             ) : (
               <DynamicWidget />

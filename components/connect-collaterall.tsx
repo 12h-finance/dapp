@@ -1,4 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
+
 import {
   Dialog,
   DialogClose,
@@ -9,32 +11,18 @@ import {
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
-import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
-import { useDynamicContext } from '@dynamic-labs/sdk-react-core'
-import {
-  Account,
-  Chain,
-  Hex,
-  Transport,
-  WalletClient,
-  PublicClient,
-  parseEther,
-} from 'viem'
+import { Dispatch, SetStateAction } from 'react'
 
 type ConnectCollaterallProps = {
   className?: string
+  onLogin: Dispatch<SetStateAction<boolean>>
 }
 
-const ConnectCollaterall = ({ className }: ConnectCollaterallProps) => {
-  const { primaryWallet } = useDynamicContext()
-
-  const handleSubmit = async () => {
-    const provider =
-      await primaryWallet.connector.getSigner<
-        WalletClient<Transport, Chain, Account>
-      >()
-  }
+const ConnectCollaterall = ({
+  className,
+  onLogin,
+}: ConnectCollaterallProps) => {
   return (
     <Dialog>
       <DialogTrigger>
@@ -50,19 +38,17 @@ const ConnectCollaterall = ({ className }: ConnectCollaterallProps) => {
             {'Choose your collaterrall provider custodian'}
           </DialogTitle>
         </DialogHeader>
-        <img alt={'brokers.svg'} src={'/brokers.svg'} />
+        <div className={'container flex justify-center'}>
+          <img alt={'brokers.svg'} src={'/brokers.svg'} />
+        </div>
+
         <div className={'mt-[24px] grid px-4 pb-4'}>
-          <div className={'mb-2 flex justify-between'}>
-            <Label className={'text text-black'}>{'Enter quantity'}</Label>
-          </div>
-          <Input type={'number'} placeholder='1' />
           <DialogClose asChild>
             <Button
               className={'mt-[10px] text-white'}
-              type={'submit'}
-              onClick={handleSubmit}
+              onClick={() => onLogin(true)}
             >
-              {'Login'}
+              {'Connect (demo broker)'}
             </Button>
           </DialogClose>
         </div>

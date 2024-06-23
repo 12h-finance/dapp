@@ -59,11 +59,11 @@ const Dashboard = () => {
           </div>
           <div
             className={cn(
-              'grid place-content-center place-items-center ',
+              'grid place-content-center place-items-center',
               'text-center',
             )}
           >
-            <Borrow />
+            {collaterallConnected && <Borrow />}
           </div>
         </div>
       </div>

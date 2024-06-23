@@ -28,6 +28,7 @@ const SupplyCollaterall = ({ className }: SupplyRWAModalProps) => {
   const [txHash, setTxHash] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
 
+  const { supplied } = use12h()
   const handleSubmit = async () => {
     if (!primaryWallet) return
     const provider =
@@ -36,19 +37,21 @@ const SupplyCollaterall = ({ className }: SupplyRWAModalProps) => {
     const signer = await primaryWallet.connector.getSigner<Account>()
     // @todo move address to config
     const address =
-      '0x021eb62dcc6c99a30290ec9e234eb17ada1f1029c454dfee7bbbc127c67be6da'
+      '0x02093eb421181dd2ac407d75d910a1bbe38995dfce8047c3860ea576bc77b5b8'
     const { abi } = await provider.getClassAt(address)
     const contract = new Contract(abi, address, provider)
 
     if (!signer) return
     contract.connect(signer)
-    const args = contract.populate('mint', [amount as string])
+    const amountDecimals = Number(amount) * 10 ** 18
+    const args = contract.populate('mint', [amountDecimals])
     const mint_tx = await contract.mint(args.calldata)
     setLoading(true)
     await provider.waitForTransaction(mint_tx.transaction_hash)
     setTxHash(mint_tx.transaction_hash)
     setLoading(false)
   }
+
   const supplyContent = () => (
     <>
       <DialogHeader>
@@ -100,9 +103,9 @@ const SupplyCollaterall = ({ className }: SupplyRWAModalProps) => {
     : txHash
       ? successContent
       : supplyContent
-  const { supplied } = use12h()
+
   return (
-    <Dialog>
+    <Dialog >
       <DialogTrigger className={className}>
         <ColumnHeaders />
         <DataRow

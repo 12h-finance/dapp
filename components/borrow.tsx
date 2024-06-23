@@ -1,4 +1,3 @@
-import { cn } from '@/lib/utils'
 import { Button } from './ui/button'
 import {
   Dialog,
@@ -90,7 +89,7 @@ const Borrow = ({ className }: BorrowProps) => {
   return (
     <div>
       <ColumnHeaders />
-      <DataRow asset='USDC' available={100} borrowed={100} apyvar={'3.42'} />
+      <DataRow asset='USDC' available={1000} borrowed={1000} apyvar={'3.42'} />
     </div>
   )
 }

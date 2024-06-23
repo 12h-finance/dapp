@@ -1,4 +1,5 @@
 'use client'
+import Borrow from '@/components/borrow'
 import ConnectCollaterall from '@/components/connect-collaterall'
 import SupplyCollaterall from '@/components/supply-collateral'
 
@@ -26,7 +27,7 @@ const Dashboard = () => {
           </div>
           <div
             className={cn(
-              'grid place-content-center place-items-center ',
+              'grid place-content-center place-items-center',
               'text-center',
             )}
           >
@@ -58,11 +59,11 @@ const Dashboard = () => {
           </div>
           <div
             className={cn(
-              'grid place-content-center place-items-center pt-[65px]',
+              'grid place-content-center place-items-center ',
               'text-center',
             )}
           >
-            {'TO BE Continued ...'}
+            <Borrow />
           </div>
         </div>
       </div>

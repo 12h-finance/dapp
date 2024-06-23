@@ -13,6 +13,7 @@ import { Account, RpcProvider, Contract } from 'starknet'
 import { useDynamicContext } from '@dynamic-labs/sdk-react-core'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
+import { TSPXBeam } from './tspx-beam'
 
 type SupplyRWAModalProps = {
   className?: string
@@ -22,6 +23,7 @@ const SupplyCollaterall = ({ className }: SupplyRWAModalProps) => {
   const { primaryWallet } = useDynamicContext()
   const [amount, setAmount] = useState(1)
   const [loading, setLoading] = useState(false)
+  const [txHash, setTxHash] = useState('')
 
   const handleSubmit = async () => {
     if (!primaryWallet) return
@@ -41,8 +43,54 @@ const SupplyCollaterall = ({ className }: SupplyRWAModalProps) => {
     const mint_tx = await contract.mint(args.calldata)
     setLoading(true)
     await provider.waitForTransaction(mint_tx.transaction_hash)
+    setTxHash(mint_tx.transaction_hash)
     setLoading(false)
   }
+  const supplyContent = () => (
+    <>
+      <DialogHeader>
+        <DialogTitle className={'text-[#0C0C4F]'}>
+          {'Supply RWA collaterall'}
+        </DialogTitle>
+      </DialogHeader>
+      <div className={'mt-[24px] grid'}>
+        <div className={'mb-2 flex justify-between'}>
+          <Label className={'text text-black'}>{'Enter quantity'}</Label>
+          <Label>
+            <span className={'text-[#8592AD]'}>{'Available: '}</span>
+            {'avalalbla'}
+          </Label>
+        </div>
+        <Input
+          type={'number'}
+          placeholder={amount.toString()}
+          onChange={e => setAmount(Number(e.target.value))}
+        />
+        <Button
+          className={'mt-[10px] text-white'}
+          type={'submit'}
+          onClick={handleSubmit}
+        >
+          {'Supply'}
+        </Button>
+      </div>
+    </>
+  )
+  const pendingContent = () => (
+    <>
+      <DialogHeader>{'Pending securities supplying'}</DialogHeader>
+      <TSPXBeam />
+    </>
+  )
+  const successContent = () => (
+    <>
+      <DialogHeader>{'success'}</DialogHeader>
+      <DialogClose>
+        <Button>{'OK'}</Button>
+      </DialogClose>
+    </>
+  )
+  const Content = loading ? pendingContent : txHash ? successContent : supplyContent
   return (
     <Dialog>
       <DialogTrigger className={className}>
@@ -50,30 +98,7 @@ const SupplyCollaterall = ({ className }: SupplyRWAModalProps) => {
         <DataRow asset='SPX' available={200} supplied={1} price='5,478.83' />
       </DialogTrigger>
       <DialogContent className={'max-w-sm bg-white'}>
-        <DialogHeader>
-          <DialogTitle className={'text-[#0C0C4F]'}>
-            {'Supply RWA collaterall'}
-          </DialogTitle>
-        </DialogHeader>
-        <div className={'mt-[24px] grid'}>
-          <div className={'mb-2 flex justify-between'}>
-            <Label className={'text text-black'}>{'Enter quantity'}</Label>
-            <Label>
-              <span className={'text-[#8592AD]'}>{'Available: '}</span>
-              {'avalalbla'}
-            </Label>
-          </div>
-          <Input
-            type={'number'}
-            placeholder={amount.toString()}
-            onChange={e => setAmount(Number(e.target.value))}
-          />
-          <DialogClose asChild>
-            <Button className={'mt-[10px] text-white'} type={'submit'} onClick={handleSubmit}>
-              {'Supply'}
-            </Button>
-          </DialogClose>
-        </div>
+        <Content />
       </DialogContent>
     </Dialog>
   )
@@ -93,8 +118,6 @@ const ColumnHeaders = () => {
     </div>
   )
 }
-
-
 
 type DataRowProps = {
   asset: string

@@ -31,5 +31,21 @@ mod Pool {
     #[external(v0)]
     fn borrow(ref self: ContractState, amount: u256) {
 	let sender = get_caller_address();
+	let usdcDis = ERC20ABIDispatcher {
+                contract_address: contract_address_const::<
+			0x021eb62dcc6c99a30290ec9e234eb17ada1f1029c454dfee7bbbc127c67be6da
+                >() 
+            };
+	let deptDis = ERC20ABIDispatcher {
+                contract_address: contract_address_const::<
+			0x021eb62dcc6c99a30290ec9e234eb17ada1f1029c454dfee7bbbc127c67be6da
+                >() 
+            };
+	
+	let price = 5478; 
+	let deptAmount = amount / price; 
+	let receiver = get_contract_address();
+	deptDis.transfer_from(sender, receiver, deptAmount);
+
     }
 }

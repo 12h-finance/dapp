@@ -1,5 +1,5 @@
 const use12h = () => {
-  const hasCollaterallConnected = false
-  return { hasCollaterallConnected }
+  const supplied = 1
+  return { supplied }
 }
 export default use12h

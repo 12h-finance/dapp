@@ -15,6 +15,7 @@ import { useState } from 'react'
 import { cn } from '@/lib/utils'
 import { TSPXBeam } from './tspx-beam'
 import SupplyColSuccess from './supply-collateral-success'
+import use12h from '@/hooks/use12h'
 
 type SupplyRWAModalProps = {
   className?: string
@@ -99,11 +100,17 @@ const SupplyCollaterall = ({ className }: SupplyRWAModalProps) => {
     : txHash
       ? successContent
       : supplyContent
+  const { supplied } = use12h()
   return (
     <Dialog>
       <DialogTrigger className={className}>
         <ColumnHeaders />
-        <DataRow asset='SPX' available={200} supplied={1} price='5,478.83' />
+        <DataRow
+          asset='SPX'
+          available={200}
+          supplied={supplied}
+          price='5,478.83'
+        />
       </DialogTrigger>
       <DialogContent className={'max-w-sm bg-white'}>
         <Content />

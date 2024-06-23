@@ -1,8 +1,18 @@
 # 12h finance
+this repo represent demo for starkhack 2024. It is build in react/next + dynamic.xyz + starknet;
+
+## run locally
+
+install node dependeices and run 'dev' script wiht npm|yarn|bun
+no extra config needed;
+
 
 ## contracts
+change workdir
 
     cd contracts
+
+after deploy dont forget to update contract address!
 
 ### build
 ```

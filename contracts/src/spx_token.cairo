@@ -28,8 +28,8 @@ mod SPXToken {
 
     #[constructor]
     fn constructor(ref self: ContractState) {
-        let name = "S&P500";
-        let symbol = "SPX";
+        let name = "S&P500 on chain";
+        let symbol = "tSPX";
         self.erc20.initializer(name, symbol);
     }
   

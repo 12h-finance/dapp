@@ -29,8 +29,9 @@ const SupplyCollaterall = ({ className }: SupplyRWAModalProps) => {
       await primaryWallet.connector.getPublicClient<RpcProvider>()
     if (!provider) return
     const signer = await primaryWallet.connector.getSigner<Account>()
+    // @todo move address to config
     const address =
-      '0x03272745f679d3b4a73fb70c4d9485c824fc533bacd6a75935b6f406b2da7c22'
+      '0x021eb62dcc6c99a30290ec9e234eb17ada1f1029c454dfee7bbbc127c67be6da'
     const { abi } = await provider.getClassAt(address)
     const contract = new Contract(abi, address, provider)
 
@@ -68,7 +69,7 @@ const SupplyCollaterall = ({ className }: SupplyRWAModalProps) => {
             onChange={e => setAmount(Number(e.target.value))}
           />
           <DialogClose asChild>
-            <Button className={'mt-[10px] text-white'} type={'submit'}>
+            <Button className={'mt-[10px] text-white'} type={'submit'} onClick={handleSubmit}>
               {'Supply'}
             </Button>
           </DialogClose>
@@ -92,6 +93,8 @@ const ColumnHeaders = () => {
     </div>
   )
 }
+
+
 
 type DataRowProps = {
   asset: string
